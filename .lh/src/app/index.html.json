@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/index.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1651592393004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651592784717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     <meta charset=\"UTF-8\" />\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n     <title>Document</title>\r\n-    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n+    <!-- <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" /> -->\r\n   </head>\r\n   <body>\r\n     <h1>Books</h1>\r\n     <script src=\"test.js\"></script>\r\n"
+                },
+                {
+                    "date": 1652110419776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n     <title>Document</title>\r\n     <!-- <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" /> -->\r\n   </head>\r\n   <body>\r\n-    <h1>Books</h1>\r\n+    <h1>Bookss</h1>\r\n     <script src=\"test.js\"></script>\r\n   </body>\r\n </html>\r\n"
+                },
+                {
+                    "date": 1652110426383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,8 @@\n     <title>Document</title>\r\n     <!-- <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" /> -->\r\n   </head>\r\n   <body>\r\n-    <h1>Bookss</h1>\r\n+    <h1>Books</h1>\r\n     <script src=\"test.js\"></script>\r\n   </body>\r\n </html>\r\n"
+                }
+            ],
+            "date": 1651592393004,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"UTF-8\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>Document</title>\r\n    <link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n  </head>\r\n  <body>\r\n    <h1>Books</h1>\r\n    <script src=\"test.js\"></script>\r\n  </body>\r\n</html>\r\n"
+        }
+    ]
+}

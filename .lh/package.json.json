@@ -1,0 +1,58 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1651407117252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651407161877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,13 @@\n   \"private\": true,\n   \"scripts\": {\n     \"test\": \"karma start\",\n     \"build\": \"webpack\",\n-    \"test:watch\": \"karma start --no-single-run --auto-watch\",\n-    \"type\": \"module\"\n+    \"test:watch\": \"karma start --no-single-run --auto-watch\"\n   },\n   \"engines\": {\n-    \"node\": \">=8.9.4\"\n+    \"node\": \">=8.9.4\",\n+    \"type\": \"module\"\n   },\n   \"dependencies\": {\n     \"babel-core\": \"^6.26.3\",\n     \"babel-loader\": \"^7.1.4\",\n"
+                },
+                {
+                    "date": 1651407181715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,18 +6,18 @@\n     \"build\": \"webpack\",\n     \"test:watch\": \"karma start --no-single-run --auto-watch\"\n   },\n   \"engines\": {\n-    \"node\": \">=8.9.4\",\n-    \"type\": \"module\"\n+    \"node\": \">=8.9.4\"\n   },\n   \"dependencies\": {\n     \"babel-core\": \"^6.26.3\",\n     \"babel-loader\": \"^7.1.4\",\n     \"babel-plugin-transform-object-rest-spread\": \"^6.26.0\",\n     \"babel-preset-env\": \"^1.7.0\",\n     \"webpack\": \"^4.12.1\",\n-    \"webpack-cli\": \"^3.1.0\"\n+    \"webpack-cli\": \"^3.1.0\",\n+    \"type\": \"module\"\n   },\n   \"devDependencies\": {\n     \"jasmine-core\": \"^3.1.0\",\n     \"karma\": \"^2.0.4\",\n"
+                },
+                {
+                    "date": 1651407214249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,17 +14,17 @@\n     \"babel-loader\": \"^7.1.4\",\n     \"babel-plugin-transform-object-rest-spread\": \"^6.26.0\",\n     \"babel-preset-env\": \"^1.7.0\",\n     \"webpack\": \"^4.12.1\",\n-    \"webpack-cli\": \"^3.1.0\",\n-    \"type\": \"module\"\n+    \"webpack-cli\": \"^3.1.0\"\n   },\n   \"devDependencies\": {\n     \"jasmine-core\": \"^3.1.0\",\n     \"karma\": \"^2.0.4\",\n     \"karma-chrome-launcher\": \"^2.2.0\",\n     \"karma-jasmine\": \"^1.1.2\",\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n-    \"karma-webpack\": \"^3.0.0\"\n+    \"karma-webpack\": \"^3.0.0\",\n+    \"type\": \"module\"\n   }\n }\n"
+                },
+                {
+                    "date": 1651407235598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,7 @@\n     \"karma-chrome-launcher\": \"^2.2.0\",\n     \"karma-jasmine\": \"^1.1.2\",\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n-    \"karma-webpack\": \"^3.0.0\",\n-    \"type\": \"module\"\n+    \"karma-webpack\": \"^3.0.0\"\n   }\n }\n"
+                },
+                {
+                    "date": 1651408116601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,6 +24,7 @@\n     \"karma-jasmine\": \"^1.1.2\",\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n     \"karma-webpack\": \"^3.0.0\"\n-  }\n+  },\n+  {\"type\": \"model\"}\n }\n"
+                },
+                {
+                    "date": 1651408127086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n     \"karma-webpack\": \"^3.0.0\"\n   },\n-  {\"type\": \"model\"}\n+  {\"type\": \"module\"}\n }\n"
+                },
+                {
+                    "date": 1651408287999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {\n   \"name\": \"JS Challenge\",\n   \"private\": true,\n+  \"type\": \"module\",\n   \"scripts\": {\n     \"test\": \"karma start\",\n     \"build\": \"webpack\",\n     \"test:watch\": \"karma start --no-single-run --auto-watch\"\n@@ -24,7 +25,7 @@\n     \"karma-jasmine\": \"^1.1.2\",\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n     \"karma-webpack\": \"^3.0.0\"\n-  },\n-  {\"type\": \"module\"}\n+  }\n+\n }\n"
+                },
+                {
+                    "date": 1651408565267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"JS Challenge\",\n   \"private\": true,\n-  \"type\": \"module\",\n+  // \"type\": \"module\",\n   \"scripts\": {\n     \"test\": \"karma start\",\n     \"build\": \"webpack\",\n     \"test:watch\": \"karma start --no-single-run --auto-watch\"\n"
+                },
+                {
+                    "date": 1651408570952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"name\": \"JS Challenge\",\n   \"private\": true,\n-  // \"type\": \"module\",\n+\n   \"scripts\": {\n     \"test\": \"karma start\",\n     \"build\": \"webpack\",\n     \"test:watch\": \"karma start --no-single-run --auto-watch\"\n"
+                },
+                {
+                    "date": 1651408890619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n {\n   \"name\": \"JS Challenge\",\n   \"private\": true,\n-\n   \"scripts\": {\n     \"test\": \"karma start\",\n     \"build\": \"webpack\",\n     \"test:watch\": \"karma start --no-single-run --auto-watch\"\n@@ -26,6 +25,5 @@\n     \"karma-junit-reporter\": \"^1.2.0\",\n     \"karma-read-json\": \"^1.1.0\",\n     \"karma-webpack\": \"^3.0.0\"\n   }\n-\n }\n"
+                }
+            ],
+            "date": 1651407117252,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"JS Challenge\",\n  \"private\": true,\n  \"scripts\": {\n    \"test\": \"karma start\",\n    \"build\": \"webpack\",\n    \"test:watch\": \"karma start --no-single-run --auto-watch\",\n    \"type\": \"module\"\n  },\n  \"engines\": {\n    \"node\": \">=8.9.4\"\n  },\n  \"dependencies\": {\n    \"babel-core\": \"^6.26.3\",\n    \"babel-loader\": \"^7.1.4\",\n    \"babel-plugin-transform-object-rest-spread\": \"^6.26.0\",\n    \"babel-preset-env\": \"^1.7.0\",\n    \"webpack\": \"^4.12.1\",\n    \"webpack-cli\": \"^3.1.0\"\n  },\n  \"devDependencies\": {\n    \"jasmine-core\": \"^3.1.0\",\n    \"karma\": \"^2.0.4\",\n    \"karma-chrome-launcher\": \"^2.2.0\",\n    \"karma-jasmine\": \"^1.1.2\",\n    \"karma-junit-reporter\": \"^1.2.0\",\n    \"karma-read-json\": \"^1.1.0\",\n    \"karma-webpack\": \"^3.0.0\"\n  }\n}\n"
+        }
+    ]
+}

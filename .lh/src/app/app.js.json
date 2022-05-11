@@ -1,0 +1,310 @@
+{
+    "sourceFile": "src/app/app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 73,
+            "patches": [
+                {
+                    "date": 1651069178986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1651069358757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n  * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n  * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n-export function parseBooksData(books, reviews) {\n+function parseBooksData(books, reviews) {\n   // TODO: Implement\n   books = require(\"./dataset/books.json\");\n   console.log(books);\n   //   return [];\n@@ -32,9 +32,9 @@\n   //   let tab = new BookWithReviews(books.id, books.title);\n   //   tab.addReview(reviews.author, reviews.content);\n   //   console.log(tab);\n }\n-parseBookData();\n+parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n  * then, following structure should be created under the parentNode:\n@@ -48,7 +48,7 @@\n  * </ol>\n  * @param parentNode - parent node for all books\n  * @param books - an array of BookWithReviews objects.\n  */\n-export function displayBooks(parentNode, books) {\n-  // TODO: Implement\n-}\n+// export function displayBooks(parentNode, books) {\n+//   // TODO: Implement\n+// }\n"
+                },
+                {
+                    "date": 1651069374205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n   console.log(books);\n   //   return [];\n   reviews = require(\"./dataset/reviews.json\");\n   console.log(reviews);\n-  //   let tab = new BookWithReviews(books.id, books.title);\n-  //   tab.addReview(reviews.author, reviews.content);\n-  //   console.log(tab);\n+  let tab = new BookWithReviews(books.id, books.title);\n+  tab.addReview(reviews.author, reviews.content);\n+  console.log(tab);\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651069437212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n-class BookWithReviews {\n-  constructor(id, title) {\n-    this.id = id;\n-    this.title = title;\n-    this.reviews = [];\n-  }\n+// class BookWithReviews {\n+//   constructor(id, title) {\n+//     this.id = id;\n+//     this.title = title;\n+//     this.reviews = [];\n+//   }\n \n-  addReview(author, content) {\n-    this.reviews.push({ author, content });\n-  }\n-}\n-\n+//   addReview(author, content) {\n+//     this.reviews.push({ author, content });\n+//   }\n+// }\n+import { BookWithReviews } from \"./model\";\n /**\n  * Parses passed books and reviews arrays to create an array of BookWithReviews object. Each row from books input array\n  * should have a corresponding row in resulting array. For example, for following input data:\n  *    books = [ { \"id\" : 101, \"title\" : \"Some book title\" } ]\n"
+                },
+                {
+                    "date": 1651136858625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,55 @@\n+class BookWithReviews {\n+  constructor(id, title) {\n+    this.id = id;\n+    this.title = title;\n+    this.reviews = [];\n+  }\n+\n+  addReview(author, content) {\n+    this.reviews.push({ author, content });\n+  }\n+}\n+// import { BookWithReviews } from \"./model\";\n+/**\n+ * Parses passed books and reviews arrays to create an array of BookWithReviews object. Each row from books input array\n+ * should have a corresponding row in resulting array. For example, for following input data:\n+ *    books = [ { \"id\" : 101, \"title\" : \"Some book title\" } ]\n+ *    reviews = [ { \"bookId\" : 101, \"author\" : \"John\", \"content\" : \"Great book!\" } ];\n+ * It should return following result:\n+ *    result = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n+ *\n+ * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n+ * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n+ * @returns {Array} - an array of BookWithReviews objects\n+ */\n+function parseBooksData(books, reviews) {\n+  // TODO: Implement\n+  books = require(\"./dataset/books.json\");\n+  console.log(books);\n+  console.log(books.length);\n+  //   return [];\n+  reviews = require(\"./dataset/reviews.json\");\n+  console.log(reviews);\n+  // let tab = new BookWithReviews(books.id, books.title);\n+  // tab.addReview(reviews.author, reviews.content);\n+  // console.log(tab);\n+}\n+parseBooksData();\n+/**\n+ * Displays data from passed `books` array. For example, if books argument would have following value:\n+ *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n+ * then, following structure should be created under the parentNode:\n+ * <ol>\n+ *    <li>\n+ *      <span>Some book title</span>\n+ *      <ul>\n+ *        <li>Great book! by John</li>\n+ *      </ul>\n+ *    </li>\n+ * </ol>\n+ * @param parentNode - parent node for all books\n+ * @param books - an array of BookWithReviews objects.\n+ */\n+// export function displayBooks(parentNode, books) {\n+//   // TODO: Implement\n+// }\n"
+                },
+                {
+                    "date": 1651136880305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n   console.log(books.length);\n   //   return [];\n   reviews = require(\"./dataset/reviews.json\");\n   console.log(reviews);\n+  console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n }\n@@ -52,58 +53,4 @@\n  */\n // export function displayBooks(parentNode, books) {\n //   // TODO: Implement\n // }\n-// class BookWithReviews {\n-//   constructor(id, title) {\n-//     this.id = id;\n-//     this.title = title;\n-//     this.reviews = [];\n-//   }\n-\n-//   addReview(author, content) {\n-//     this.reviews.push({ author, content });\n-//   }\n-// }\n-import { BookWithReviews } from \"./model\";\n-/**\n- * Parses passed books and reviews arrays to create an array of BookWithReviews object. Each row from books input array\n- * should have a corresponding row in resulting array. For example, for following input data:\n- *    books = [ { \"id\" : 101, \"title\" : \"Some book title\" } ]\n- *    reviews = [ { \"bookId\" : 101, \"author\" : \"John\", \"content\" : \"Great book!\" } ];\n- * It should return following result:\n- *    result = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n- *\n- * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n- * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n- * @returns {Array} - an array of BookWithReviews objects\n- */\n-function parseBooksData(books, reviews) {\n-  // TODO: Implement\n-  books = require(\"./dataset/books.json\");\n-  console.log(books);\n-  //   return [];\n-  reviews = require(\"./dataset/reviews.json\");\n-  console.log(reviews);\n-  let tab = new BookWithReviews(books.id, books.title);\n-  tab.addReview(reviews.author, reviews.content);\n-  console.log(tab);\n-}\n-parseBooksData();\n-/**\n- * Displays data from passed `books` array. For example, if books argument would have following value:\n- *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n- * then, following structure should be created under the parentNode:\n- * <ol>\n- *    <li>\n- *      <span>Some book title</span>\n- *      <ul>\n- *        <li>Great book! by John</li>\n- *      </ul>\n- *    </li>\n- * </ol>\n- * @param parentNode - parent node for all books\n- * @param books - an array of BookWithReviews objects.\n- */\n-// export function displayBooks(parentNode, books) {\n-//   // TODO: Implement\n-// }\n"
+                },
+                {
+                    "date": 1651140850835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,13 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n+  for (i = 0; i < books.length; i++) {\n+    console.log(new BookWithReviews(books.id, books.title));\n+    // return [new BookWithReviews(books.[i].id,books.title)]\n+  }\n+  return [];\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651141186612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n   for (i = 0; i < books.length; i++) {\n-    console.log(new BookWithReviews(books.id, books.title));\n+    console.log(new BookWithReviews([books][i].id, [books][i].title));\n     // return [new BookWithReviews(books.[i].id,books.title)]\n   }\n   return [];\n }\n"
+                },
+                {
+                    "date": 1651141221519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n   for (i = 0; i < books.length; i++) {\n-    console.log(new BookWithReviews([books][i].id, [books][i].title));\n+    console.log(new BookWithReviews([books][i][id], [books][i][title]));\n     // return [new BookWithReviews(books.[i].id,books.title)]\n   }\n   return [];\n }\n"
+                },
+                {
+                    "date": 1651141315037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,12 +33,13 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  for (i = 0; i < books.length; i++) {\n-    console.log(new BookWithReviews([books][i][id], [books][i][title]));\n-    // return [new BookWithReviews(books.[i].id,books.title)]\n-  }\n+  console.log([books][0][id]);\n+  // for (i = 0; i < books.length; i++) {\n+  //   console.log(new BookWithReviews([books][i][id], [books][i][title]));\n+  //   // return [new BookWithReviews(books.[i].id,books.title)]\n+  // }\n   return [];\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651141414748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  console.log([books][0][id]);\n+  console.log(books[0][id]);\n   // for (i = 0; i < books.length; i++) {\n   //   console.log(new BookWithReviews([books][i][id], [books][i][title]));\n   //   // return [new BookWithReviews(books.[i].id,books.title)]\n   // }\n"
+                },
+                {
+                    "date": 1651141446427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  console.log(books[0][id]);\n+  console.log(books[0]);\n   // for (i = 0; i < books.length; i++) {\n   //   console.log(new BookWithReviews([books][i][id], [books][i][title]));\n   //   // return [new BookWithReviews(books.[i].id,books.title)]\n   // }\n"
+                },
+                {
+                    "date": 1651141472265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  console.log(books[0]);\n+  console.log(books[0].id);\n   // for (i = 0; i < books.length; i++) {\n   //   console.log(new BookWithReviews([books][i][id], [books][i][title]));\n   //   // return [new BookWithReviews(books.[i].id,books.title)]\n   // }\n"
+                },
+                {
+                    "date": 1651141618677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,12 +34,12 @@\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n   console.log(books[0].id);\n-  // for (i = 0; i < books.length; i++) {\n-  //   console.log(new BookWithReviews([books][i][id], [books][i][title]));\n-  //   // return [new BookWithReviews(books.[i].id,books.title)]\n-  // }\n+  for (i = 0; i < books.length; i++) {\n+    console.log(new BookWithReviews(books[i].id, books[i].title));\n+    // return [new BookWithReviews(books.[i].id,books.title)]\n+  }\n   return [];\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651141699558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,12 +33,12 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  console.log(books[0].id);\n+\n   for (i = 0; i < books.length; i++) {\n     console.log(new BookWithReviews(books[i].id, books[i].title));\n-    // return [new BookWithReviews(books.[i].id,books.title)]\n+    return [new BookWithReviews(books[i].id, books[i].title)];\n   }\n   return [];\n }\n parseBooksData();\n"
+                },
+                {
+                    "date": 1651141756432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   // console.log(tab);\n \n   for (i = 0; i < books.length; i++) {\n     console.log(new BookWithReviews(books[i].id, books[i].title));\n-    return [new BookWithReviews(books[i].id, books[i].title)];\n+    // return [new BookWithReviews(books[i].id, books[i].title)];\n   }\n   return [];\n }\n parseBooksData();\n"
+                },
+                {
+                    "date": 1651141775987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,10 @@\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n \n   for (i = 0; i < books.length; i++) {\n-    console.log(new BookWithReviews(books[i].id, books[i].title));\n-    // return [new BookWithReviews(books[i].id, books[i].title)];\n+    // console.log(new BookWithReviews(books[i].id, books[i].title));\n+    return [new BookWithReviews(books[i].id, books[i].title)];\n   }\n   return [];\n }\n parseBooksData();\n"
+                },
+                {
+                    "date": 1651142233838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,14 +33,14 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-\n+  let tab = [];\n   for (i = 0; i < books.length; i++) {\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n-    return [new BookWithReviews(books[i].id, books[i].title)];\n+    tab[i] = [new BookWithReviews(books[i].id, books[i].title)];\n   }\n-  return [];\n+  console.log(tab);\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651142303462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,9 @@\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n     tab[i] = [new BookWithReviews(books[i].id, books[i].title)];\n   }\n   console.log(tab);\n+  return tab;\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651142391771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n   // console.log(tab);\n   let tab = [];\n   for (i = 0; i < books.length; i++) {\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n-    tab[i] = [new BookWithReviews(books[i].id, books[i].title)];\n+    tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n   console.log(tab);\n   return tab;\n }\n"
+                },
+                {
+                    "date": 1651142574454,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n     tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n   console.log(tab);\n   return tab;\n+  console.log(tab.length);\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651142633116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n     tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n   console.log(tab);\n-  return tab;\n+  // return tab;\n   console.log(tab.length);\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651142947953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,12 @@\n   }\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n+  console.log(tab[0].id);\n+  //   for(i=0; i<reviews.length;i++){\n+  // if(books)\n+  //   }\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651142967373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   }\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n-  console.log(tab[0].id);\n+  console.log(tab[2].id);\n   //   for(i=0; i<reviews.length;i++){\n   // if(books)\n   //   }\n }\n"
+                },
+                {
+                    "date": 1651143320010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,11 +42,14 @@\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n-  //   for(i=0; i<reviews.length;i++){\n-  // if(books)\n-  //   }\n+  for (i = 0; i < reviews.length; i++) {\n+    if (tab[i].id === reviews[i].bookId) {\n+      tab.addReview(review[i].author, review[i].content);\n+    }\n+  }\n+  console.log(tab);\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651143345695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n   console.log(tab.length);\n   console.log(tab[2].id);\n   for (i = 0; i < reviews.length; i++) {\n     if (tab[i].id === reviews[i].bookId) {\n-      tab.addReview(review[i].author, review[i].content);\n+      tab.addReview(reviews[i].author, review[i].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651143359545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n   console.log(tab.length);\n   console.log(tab[2].id);\n   for (i = 0; i < reviews.length; i++) {\n     if (tab[i].id === reviews[i].bookId) {\n-      tab.addReview(reviews[i].author, review[i].content);\n+      tab.addReview(reviews[i].author, reviews[i].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651143453133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n   console.log(tab.length);\n   console.log(tab[2].id);\n   for (i = 0; i < reviews.length; i++) {\n     if (tab[i].id === reviews[i].bookId) {\n-      tab.addReview(reviews[i].author, reviews[i].content);\n+      tab[i].addReview(reviews[i].author, reviews[i].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651143560204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,11 +42,11 @@\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n-  for (i = 0; i < reviews.length; i++) {\n-    if (tab[i].id === reviews[i].bookId) {\n-      tab[i].addReview(reviews[i].author, reviews[i].content);\n+  for (j = 0; j < reviews.length; j++) {\n+    if (tab[j].id === reviews[j].bookId) {\n+      tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651143576692,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   for (j = 0; j < reviews.length; j++) {\n-    if (tab[j].id === reviews[j].bookId) {\n+    if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n"
+                },
+                {
+                    "date": 1651144038689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n   console.log(tab.length);\n   console.log(tab[2].id);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n-      tab[j].addReview(reviews[j].author, reviews[j].content);\n+      tab[j][reviews].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651144179331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n+  console.log(tab[2].reviews);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j][reviews].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144203450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n-  console.log(tab[2].reviews);\n+  console.log(tab[2][reviews]);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j][reviews].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144229824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n-      tab[j][reviews].addReview(reviews[j].author, reviews[j].content);\n+      tab[j].reviews.addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651144565129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n-      tab[j].reviews.addReview(reviews[j].author, reviews[j].content);\n+      tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651144612220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n+  console.log(reviews[1].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144654165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews[1].bookId);\n+  console.log(reviews[0].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144673456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews[0].bookId);\n+  console.log(reviews[3].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144698315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews[3].bookId);\n+  console.log(reviews[1].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144711403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews[1].bookId);\n+  console.log(reviews01].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144718195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews01].bookId);\n+  console.log(reviews[0].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144734828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n   // return tab;\n   console.log(tab.length);\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n-  console.log(reviews[0].bookId);\n+  console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id == reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651144766279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n   console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n-    if (tab[j].id == reviews[j].bookId) {\n+    if (tab[j].id === reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n"
+                },
+                {
+                    "date": 1651144944137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  let tab = [];\n+  const tab = [];\n   for (i = 0; i < books.length; i++) {\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n     tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n"
+                },
+                {
+                    "date": 1651144965742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   console.log(reviews.length);\n   // let tab = new BookWithReviews(books.id, books.title);\n   // tab.addReview(reviews.author, reviews.content);\n   // console.log(tab);\n-  const tab = [];\n+  let tab = [];\n   for (i = 0; i < books.length; i++) {\n     // console.log(new BookWithReviews(books[i].id, books[i].title));\n     tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n"
+                },
+                {
+                    "date": 1651146973505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n   }\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n-  console.log(tab[2].id);\n+  console.log(tab[2].BookWithReviews.id);\n   console.log(tab[2][reviews]);\n   console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[j].id === reviews[j].bookId) {\n"
+                },
+                {
+                    "date": 1651147022259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,13 +41,13 @@\n   }\n   console.log(tab);\n   // return tab;\n   console.log(tab.length);\n-  console.log(tab[2].BookWithReviews.id);\n+  console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n   console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n-    if (tab[j].id === reviews[j].bookId) {\n+    if (tab.id === reviews.bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n"
+                },
+                {
+                    "date": 1651147046276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n   console.log(tab[2][reviews]);\n   console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n     if (tab.id === reviews.bookId) {\n-      tab[j].addReview(reviews[j].author, reviews[j].content);\n+      tab[j].reviews.addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651147092690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,10 +45,10 @@\n   console.log(tab[2].id);\n   console.log(tab[2][reviews]);\n   console.log(reviews[2].bookId);\n   for (j = 0; j < reviews.length; j++) {\n-    if (tab.id === reviews.bookId) {\n-      tab[j].reviews.addReview(reviews[j].author, reviews[j].content);\n+    if (tab[i].id === reviews[j].bookId) {\n+      tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n }\n"
+                },
+                {
+                    "date": 1651147110083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,8 +50,9 @@\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n   }\n   console.log(tab);\n+  return tab;\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651150266448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,28 +24,17 @@\n  */\n function parseBooksData(books, reviews) {\n   // TODO: Implement\n   books = require(\"./dataset/books.json\");\n-  console.log(books);\n-  console.log(books.length);\n-  //   return [];\n+\n   reviews = require(\"./dataset/reviews.json\");\n-  console.log(reviews);\n-  console.log(reviews.length);\n-  // let tab = new BookWithReviews(books.id, books.title);\n-  // tab.addReview(reviews.author, reviews.content);\n-  // console.log(tab);\n+\n   let tab = [];\n   for (i = 0; i < books.length; i++) {\n-    // console.log(new BookWithReviews(books[i].id, books[i].title));\n     tab[i] = new BookWithReviews(books[i].id, books[i].title);\n   }\n   console.log(tab);\n-  // return tab;\n-  console.log(tab.length);\n-  console.log(tab[2].id);\n-  console.log(tab[2][reviews]);\n-  console.log(reviews[2].bookId);\n+\n   for (j = 0; j < reviews.length; j++) {\n     if (tab[i].id === reviews[j].bookId) {\n       tab[j].addReview(reviews[j].author, reviews[j].content);\n     }\n"
+                },
+                {
+                    "date": 1651155135700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,20 +27,20 @@\n   books = require(\"./dataset/books.json\");\n \n   reviews = require(\"./dataset/reviews.json\");\n \n-  let tab = [];\n-  for (i = 0; i < books.length; i++) {\n-    tab[i] = new BookWithReviews(books[i].id, books[i].title);\n-  }\n-  console.log(tab);\n+  return books\n+    .map((book) => {\n+      return new BookWithReviews(book.id, book.title);\n+    })\n+    .map((bookWithReview) => {\n+      reviews\n+        .filter((review) => bookWithReview.id === review.bookId)\n+        .forEach((filteredBooks) => {\n+          bookWithReview();\n+        });\n+    });\n \n-  for (j = 0; j < reviews.length; j++) {\n-    if (tab[i].id === reviews[j].bookId) {\n-      tab[j].addReview(reviews[j].author, reviews[j].content);\n-    }\n-  }\n-  console.log(tab);\n   return tab;\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651155231838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,13 +35,15 @@\n     .map((bookWithReview) => {\n       reviews\n         .filter((review) => bookWithReview.id === review.bookId)\n         .forEach((filteredBooks) => {\n-          bookWithReview();\n+          BookWithReviews.addReview(\n+            filteredBooks.author,\n+            filteredBooks.content\n+          );\n         });\n+      return bookWithReview;\n     });\n-\n-  return tab;\n }\n parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n"
+                },
+                {
+                    "date": 1651155305416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n             filteredBooks.content\n           );\n         });\n       return bookWithReview;\n+      console.log(bookWithReview);\n     });\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651155311539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n+      console.log(bookWithReview);\n       return bookWithReview;\n-      console.log(bookWithReview);\n     });\n }\n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651155444055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,12 +23,9 @@\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n function parseBooksData(books, reviews) {\n   // TODO: Implement\n-  books = require(\"./dataset/books.json\");\n \n-  reviews = require(\"./dataset/reviews.json\");\n-\n   return books\n     .map((book) => {\n       return new BookWithReviews(book.id, book.title);\n     })\n@@ -44,9 +41,12 @@\n       console.log(bookWithReview);\n       return bookWithReview;\n     });\n }\n-parseBooksData();\n+books = require(\"./dataset/books.json\");\n+\n+reviews = require(\"./dataset/reviews.json\");\n+parseBooksData(books, reviews);\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n  * then, following structure should be created under the parentNode:\n"
+                },
+                {
+                    "date": 1651155566017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,16 +23,18 @@\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n function parseBooksData(books, reviews) {\n   // TODO: Implement\n+  books = require(\"./dataset/books.json\");\n \n+  reviews = require(\"./dataset/reviews.json\");\n   return books\n     .map((book) => {\n       return new BookWithReviews(book.id, book.title);\n     })\n     .map((bookWithReview) => {\n       reviews\n-        .filter((review) => bookWithReview.id === review.bookId)\n+        .filter((review) => BookWithReviews.id === review.bookId)\n         .forEach((filteredBooks) => {\n           BookWithReviews.addReview(\n             filteredBooks.author,\n             filteredBooks.content\n@@ -41,11 +43,9 @@\n       console.log(bookWithReview);\n       return bookWithReview;\n     });\n }\n-books = require(\"./dataset/books.json\");\n \n-reviews = require(\"./dataset/reviews.json\");\n parseBooksData(books, reviews);\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n"
+                },
+                {
+                    "date": 1651155604633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,11 @@\n       return new BookWithReviews(book.id, book.title);\n     })\n     .map((bookWithReview) => {\n       reviews\n-        .filter((review) => BookWithReviews.id === review.bookId)\n+        .filter((review) => bookWithReviews.id === review.bookId)\n         .forEach((filteredBooks) => {\n-          BookWithReviews.addReview(\n+          bookWithReviews.addReview(\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n"
+                },
+                {
+                    "date": 1651155625849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n   return books\n     .map((book) => {\n       return new BookWithReviews(book.id, book.title);\n     })\n-    .map((bookWithReview) => {\n+    .map((bookWithReviews) => {\n       reviews\n         .filter((review) => bookWithReviews.id === review.bookId)\n         .forEach((filteredBooks) => {\n           bookWithReviews.addReview(\n"
+                },
+                {
+                    "date": 1651155649405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n       return bookWithReview;\n     });\n }\n \n-parseBooksData(books, reviews);\n+parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n  * then, following structure should be created under the parentNode:\n"
+                },
+                {
+                    "date": 1651155671489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,10 @@\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n-      console.log(bookWithReview);\n-      return bookWithReview;\n+      console.log(bookWithReviews);\n+      return bookWithReviews;\n     });\n }\n \n parseBooksData();\n"
+                },
+                {
+                    "date": 1651155957361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,9 @@\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n function parseBooksData(books, reviews) {\n   // TODO: Implement\n-  books = require(\"./dataset/books.json\");\n \n-  reviews = require(\"./dataset/reviews.json\");\n   return books\n     .map((book) => {\n       return new BookWithReviews(book.id, book.title);\n     })\n@@ -43,10 +41,12 @@\n       console.log(bookWithReviews);\n       return bookWithReviews;\n     });\n }\n+books = require(\"./dataset/books.json\");\n \n-parseBooksData();\n+reviews = require(\"./dataset/reviews.json\");\n+parseBooksData(books, reviews);\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n  * then, following structure should be created under the parentNode:\n"
+                },
+                {
+                    "date": 1651155984226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,11 @@\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n function parseBooksData(books, reviews) {\n   // TODO: Implement\n+  books = require(\"./dataset/books.json\");\n \n+  reviews = require(\"./dataset/reviews.json\");\n   return books\n     .map((book) => {\n       return new BookWithReviews(book.id, book.title);\n     })\n@@ -41,12 +43,10 @@\n       console.log(bookWithReviews);\n       return bookWithReviews;\n     });\n }\n-books = require(\"./dataset/books.json\");\n \n-reviews = require(\"./dataset/reviews.json\");\n-parseBooksData(books, reviews);\n+parseBooksData();\n /**\n  * Displays data from passed `books` array. For example, if books argument would have following value:\n  *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n  * then, following structure should be created under the parentNode:\n"
+                },
+                {
+                    "date": 1651406753617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,11 +39,12 @@\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n-      console.log(bookWithReviews);\n+      // console.log(bookWithReviews);\n       return bookWithReviews;\n     });\n+  // console.log(books)\n }\n \n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651406851265,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n         });\n       // console.log(bookWithReviews);\n       return bookWithReviews;\n     });\n-  // console.log(books)\n+  console.log(books);\n }\n \n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651406872298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,12 +39,13 @@\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n-      // console.log(bookWithReviews);\n+\n       return bookWithReviews;\n+      console.log(bookWithReviews);\n     });\n-  console.log(books);\n+  // console.log(books);\n }\n \n parseBooksData();\n /**\n"
+                },
+                {
+                    "date": 1651406881071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,11 +39,10 @@\n             filteredBooks.author,\n             filteredBooks.content\n           );\n         });\n-\n+      console.log(bookWithReviews);\n       return bookWithReviews;\n-      console.log(bookWithReviews);\n     });\n   // console.log(books);\n }\n \n"
+                },
+                {
+                    "date": 1651408602735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n  * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n  * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n-function parseBooksData(books, reviews) {\n+export function parseBooksData(books, reviews) {\n   // TODO: Implement\n   books = require(\"./dataset/books.json\");\n \n   reviews = require(\"./dataset/reviews.json\");\n"
+                },
+                {
+                    "date": 1651408616098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n  * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n  * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n  * @returns {Array} - an array of BookWithReviews objects\n  */\n-export function parseBooksData(books, reviews) {\n+function parseBooksData(books, reviews) {\n   // TODO: Implement\n   books = require(\"./dataset/books.json\");\n \n   reviews = require(\"./dataset/reviews.json\");\n"
+                },
+                {
+                    "date": 1651592393029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,4 +64,12 @@\n  */\n // export function displayBooks(parentNode, books) {\n //   // TODO: Implement\n // }\n+function displayBooks(parentNode, books) {\n+  // TODO: Implement\n+  // const booksList = document.createElement('ol')\n+  parentNode = document.createElement(\"ol\");\n+  const book = document.createElement(\"li\");\n+  const title = document.createElement(\"span\");\n+  const review = document.createElement(\"ul\");\n+}\n"
+                },
+                {
+                    "date": 1651608649016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,7 +69,15 @@\n   // TODO: Implement\n   // const booksList = document.createElement('ol')\n   parentNode = document.createElement(\"ol\");\n   const book = document.createElement(\"li\");\n-  const title = document.createElement(\"span\");\n-  const review = document.createElement(\"ul\");\n+  book.textContent = books.title;\n+  parentNode.appendChild(book);\n+\n+  // const title = document.createElement(\"span\");\n+  const reviewul = document.createElement(\"ul\");\n+  books.forEach((review) => {\n+    const bookli = document.createElement(\"li\");\n+    bookli.textContent = review.reviews.author + review.reviews.content;\n+    reviewul.appendChild(bookli);\n+  });\n }\n"
+                },
+                {
+                    "date": 1651777244417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,20 +64,20 @@\n  */\n // export function displayBooks(parentNode, books) {\n //   // TODO: Implement\n // }\n-function displayBooks(parentNode, books) {\n-  // TODO: Implement\n-  // const booksList = document.createElement('ol')\n-  parentNode = document.createElement(\"ol\");\n-  const book = document.createElement(\"li\");\n-  book.textContent = books.title;\n-  parentNode.appendChild(book);\n+// function displayBooks(parentNode, books) {\n+//   // TODO: Implement\n+//   // const booksList = document.createElement('ol')\n+//   parentNode = document.createElement(\"ol\");\n+//   const book = document.createElement(\"li\");\n+//   book.textContent = books.title;\n+//   parentNode.appendChild(book);\n \n-  // const title = document.createElement(\"span\");\n-  const reviewul = document.createElement(\"ul\");\n-  books.forEach((review) => {\n-    const bookli = document.createElement(\"li\");\n-    bookli.textContent = review.reviews.author + review.reviews.content;\n-    reviewul.appendChild(bookli);\n-  });\n-}\n+//   // const title = document.createElement(\"span\");\n+//   const reviewul = document.createElement(\"ul\");\n+//   books.forEach((review) => {\n+//     const bookli = document.createElement(\"li\");\n+//     bookli.textContent = review.reviews.author + review.reviews.content;\n+//     reviewul.appendChild(bookli);\n+//   });\n+// }\n"
+                },
+                {
+                    "date": 1651777741637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,4 +80,31 @@\n //     bookli.textContent = review.reviews.author + review.reviews.content;\n //     reviewul.appendChild(bookli);\n //   });\n // }\n+\n+function x() {\n+  const books = [\n+    {\n+      title: \"x\",\n+      reviews: [\n+        {\n+          title: \"aaa\",\n+          content: \"bbb\",\n+        },\n+        {\n+          title: \"aaa\",\n+          content: \"bbb\",\n+        },\n+      ],\n+    },\n+  ];\n+  return `<ol>\n+  ${books.map((book) => {\n+    const reviews =\n+      book.reviews && book.reviews.length > 0\n+        ? `<ul>${book.reviews.map((review) => `<li>${review.title}</li>`)}</ul>`\n+        : \"\";\n+\n+    return `<li><span>${book.title}</span>${reviews}</li>`;\n+  })}</ol>`;\n+}\n"
+                },
+                {
+                    "date": 1651855794681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -107,4 +107,9 @@\n \n     return `<li><span>${book.title}</span>${reviews}</li>`;\n   })}</ol>`;\n }\n+\n+function displayBooks(parentNode, books) {\n+  books = parseBooksData();\n+  parentNode = document.createElement(\"ol\");\n+}\n"
+                }
+            ],
+            "date": 1651069178986,
+            "name": "Commit-0",
+            "content": "class BookWithReviews {\n  constructor(id, title) {\n    this.id = id;\n    this.title = title;\n    this.reviews = [];\n  }\n\n  addReview(author, content) {\n    this.reviews.push({ author, content });\n  }\n}\n\n/**\n * Parses passed books and reviews arrays to create an array of BookWithReviews object. Each row from books input array\n * should have a corresponding row in resulting array. For example, for following input data:\n *    books = [ { \"id\" : 101, \"title\" : \"Some book title\" } ]\n *    reviews = [ { \"bookId\" : 101, \"author\" : \"John\", \"content\" : \"Great book!\" } ];\n * It should return following result:\n *    result = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n *\n * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\n * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\n * @returns {Array} - an array of BookWithReviews objects\n */\nexport function parseBooksData(books, reviews) {\n  // TODO: Implement\n  books = require(\"./dataset/books.json\");\n  console.log(books);\n  //   return [];\n  reviews = require(\"./dataset/reviews.json\");\n  console.log(reviews);\n  //   let tab = new BookWithReviews(books.id, books.title);\n  //   tab.addReview(reviews.author, reviews.content);\n  //   console.log(tab);\n}\nparseBookData();\n/**\n * Displays data from passed `books` array. For example, if books argument would have following value:\n *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\n * then, following structure should be created under the parentNode:\n * <ol>\n *    <li>\n *      <span>Some book title</span>\n *      <ul>\n *        <li>Great book! by John</li>\n *      </ul>\n *    </li>\n * </ol>\n * @param parentNode - parent node for all books\n * @param books - an array of BookWithReviews objects.\n */\nexport function displayBooks(parentNode, books) {\n  // TODO: Implement\n}\n"
+        }
+    ]
+}

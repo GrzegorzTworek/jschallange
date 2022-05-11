@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/app_test.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1651144340269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1651144340269,
+            "name": "Commit-0",
+            "content": "class BookWithReviews {\r\n  constructor(id, title) {\r\n    this.id = id;\r\n    this.title = title;\r\n    this.reviews = [];\r\n  }\r\n\r\n  addReview(author, content) {\r\n    this.reviews.push({ author, content });\r\n  }\r\n}\r\n// import { BookWithReviews } from \"./model\";\r\n/**\r\n * Parses passed books and reviews arrays to create an array of BookWithReviews object. Each row from books input array\r\n * should have a corresponding row in resulting array. For example, for following input data:\r\n *    books = [ { \"id\" : 101, \"title\" : \"Some book title\" } ]\r\n *    reviews = [ { \"bookId\" : 101, \"author\" : \"John\", \"content\" : \"Great book!\" } ];\r\n * It should return following result:\r\n *    result = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\r\n *\r\n * @param books - an array of input books, see 'src/app/dataset/books.json' for sample data.\r\n * @param reviews - an array of input reviews, see 'src/app/dataset/reviews.json' for sample data.\r\n * @returns {Array} - an array of BookWithReviews objects\r\n */\r\nfunction parseBooksData(books, reviews) {\r\n  // TODO: Implement\r\n  books = require(\"./dataset/books.json\");\r\n  console.log(books);\r\n  console.log(books.length);\r\n  //   return [];\r\n  reviews = require(\"./dataset/reviews.json\");\r\n  console.log(reviews);\r\n  console.log(reviews.length);\r\n  // let tab = new BookWithReviews(books.id, books.title);\r\n  // tab.addReview(reviews.author, reviews.content);\r\n  // console.log(tab);\r\n  let tab = [];\r\n  for (i = 0; i < books.length; i++) {\r\n    // console.log(new BookWithReviews(books[i].id, books[i].title));\r\n    tab[i] = new BookWithReviews(books[i].id, books[i].title);\r\n  }\r\n  console.log(tab);\r\n  // return tab;\r\n  console.log(tab.length);\r\n  console.log(tab[2].id);\r\n  console.log(tab[2][reviews]);\r\n  for (j = 0; j < reviews.length; j++) {\r\n    if (tab[j].id == reviews[j].bookId) {\r\n      tab[j].reviews.addReview(reviews[j].author, reviews[j].content);\r\n    }\r\n  }\r\n  console.log(tab);\r\n}\r\nparseBooksData();\r\n/**\r\n * Displays data from passed `books` array. For example, if books argument would have following value:\r\n *    books = [ { id: 101, title: \"Some book title\", reviews : [ { author: \"John\", content: \"Great book!\" }] } ];\r\n * then, following structure should be created under the parentNode:\r\n * <ol>\r\n *    <li>\r\n *      <span>Some book title</span>\r\n *      <ul>\r\n *        <li>Great book! by John</li>\r\n *      </ul>\r\n *    </li>\r\n * </ol>\r\n * @param parentNode - parent node for all books\r\n * @param books - an array of BookWithReviews objects.\r\n */\r\n// export function displayBooks(parentNode, books) {\r\n//   // TODO: Implement\r\n// }\r\n"
+        }
+    ]
+}

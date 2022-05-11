@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/model.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1651069055815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1651069055815,
+            "name": "Commit-0",
+            "content": "export class BookWithReviews {\r\n  constructor(id, title) {\r\n    this.id = id;\r\n    this.title = title;\r\n    this.reviews = [];\r\n  }\r\n  addReview(author, content) {\r\n    this.reviews.push({ author, content });\r\n  }\r\n}\r\n"
+        }
+    ]
+}
