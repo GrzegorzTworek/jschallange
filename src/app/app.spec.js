@@ -39,7 +39,6 @@ describe('appTests', function () {
 
     displayBooks(parentEl, parseBooksData([], []));
     var bookNodes = parentEl.querySelectorAll("ol");
-
     expect(bookNodes.length).toEqual(0);
   });
 
